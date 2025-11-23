@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PersonaType | Profile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <button id="theme-toggle" aria-label="Toggle Theme">
+        <span class="icon">☀️</span>
+        <span class="icon">🌙</span>
+    </button>
+
+    <div class="app-container">
+        
+        <div id="start-screen" class="screen active">
+            <div class="hero-content">
+                <div class="logo">🧬</div>
+                <h1>PersonaType</h1>
+                <p class="subtitle">Uncover your true personality type.</p>
+                
+                <div class="start-form">
+                    <input type="text" id="username-input" placeholder="Enter your name..." autocomplete="off">
+                    
+                    <button class="primary-btn start-btn" onclick="startQuiz()">START TEST</button>
+                </div>
+
+                <p class="instruction">
+                    Instructions:<br>
+                    Select the circle that best describes you.<br>
+                    <strong>Left</strong> = Disagree | <strong>Right</strong> = Agree
+                </p>
+            </div>
+        </div>
+
+        <div id="quiz-screen" class="screen hidden">
+            <div class="header-bar">
+                <span id="question-count">Statement 1 / 20</span>
+                <div class="progress-track">
+                    <div id="progress-bar"></div>
+                </div>
+            </div>
+
+            <div class="card fade-in">
+                <h2 id="statement-text">Loading...</h2>
+                
+                <div class="options-wrapper">
+                    <div class="labels">
+                        <span class="label-disagree">Disagree</span>
+                        <span class="label-agree">Agree</span>
+                    </div>
+
+                    <div id="circles-container" class="circles-row">
+                        </div>
+                </div>
+
+                <button class="primary-btn" onclick="nextQuestion()">Next Statement</button>
+            </div>
+        </div>
+
+        <div id="result-screen" class="screen hidden">
+            
+            <div class="profile-header">
+                <div class="avatar-circle">👤</div>
+                <div class="profile-info">
+                    <p class="profile-label">Profile</p>
+                    <h2 id="display-name">Guest</h2>
+                </div>
+            </div>
+            
+            <div class="result-card">
+                <div class="type-reveal">
+                    <p class="result-label">Your Personality Type</p>
+                    <h1 id="type-code">----</h1>
+                    <h3 id="type-title">The Archetype</h3>
+                </div>
+                
+                <div class="trait-bars-container">
+                    <div class="trait-row">
+                        <div class="trait-label">Extroverted</div>
+                        <div class="bar-track"><div class="bar-fill" id="bar-e"></div></div>
+                        <div class="trait-label">Introverted</div>
+                    </div>
+                    <div class="trait-row">
+                        <div class="trait-label">Intuitive</div>
+                        <div class="bar-track"><div class="bar-fill" id="bar-n"></div></div>
+                        <div class="trait-label">Sensing</div>
+                    </div>
+                    <div class="trait-row">
+                        <div class="trait-label">Thinking</div>
+                        <div class="bar-track"><div class="bar-fill" id="bar-t"></div></div>
+                        <div class="trait-label">Feeling</div>
+                    </div>
+                    <div class="trait-row">
+                        <div class="trait-label">Judging</div>
+                        <div class="bar-track"><div class="bar-fill" id="bar-j"></div></div>
+                        <div class="trait-label">Perceiving</div>
+                    </div>
+                </div>
+
+                <hr class="divider">
+                <p id="type-description" class="description">Loading...</p>
+            </div>
+
+            <div class="career-card">
+                <h4>🎯 Recommended Careers</h4>
+                <p id="career-list">Loading...</p>
+            </div>
+
+            <button class="secondary-btn" onclick="restartQuiz()">Retake Test</button>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
